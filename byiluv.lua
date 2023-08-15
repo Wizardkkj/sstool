@@ -147,3 +147,23 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.LavaLake.Finish.CFrame
 
   	end    
 })
+
+local Tab = Window:MakeTab({
+	Name = "Misc OP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "FREEZE Button",
+	Callback = function()
+          loadstring(game:HttpGet('https://raw.githubusercontent.com/creepstu/fuzzy-octo-giggle/main/Source'))()
+      		OrionLib:MakeNotification({
+	Name = "GUI loaded",
+	Content = "Switch on and off",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
+})
