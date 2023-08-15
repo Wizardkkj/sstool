@@ -149,27 +149,27 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.LavaLake.Finish.CFrame
 })
 
 local Tab = Window:MakeTab({
-	Name = "Misc OP",
+	Name = "Tools",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
 Tab:AddButton({
-	Name = "FREEZE Button",
+	Name = "Freeze Button",
 	Callback = function()
           loadstring(game:HttpGet('https://raw.githubusercontent.com/creepstu/fuzzy-octo-giggle/main/Source'))()
       		OrionLib:MakeNotification({
 	Name = "GUI loaded",
 	Content = "Switch on and off",
 	Image = "rbxassetid://4483345998",
-	Time = 2
+	Time = 3
 })
 
   	end    
 })
 
 Tab:AddButton({
-	Name = "Hitbox Hack",
+	Name = "HitBox",
 	Callback = function()
 _G.HeadSize = 9
 _G.Disabled = true
@@ -191,9 +191,9 @@ end
 end)
       		OrionLib:MakeNotification({
 	Name = "Hitbox",
-	Content = "Activate again after the enemy dies",
+	Content = "More Reach :)",
 	Image = "rbxassetid://4483345998",
-	Time = 2
+	Time = 4
 })
 
   	end    
