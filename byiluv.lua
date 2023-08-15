@@ -7,6 +7,24 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local Tab2 = Window:MakeTab({
+	Name = "Auto Win PVP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Misc TP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab4 = Window:MakeTab({
+	Name = "Tools",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 Tab:AddButton({
 	Name = "Red Light, Green Light!",
 	Callback = function()
@@ -67,13 +85,8 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.ConveyorLaser.Finish.CF
   	end    
 })
 
-local Tab = Window:MakeTab({
-	Name = "AutoWin PVP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
 
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "Circus",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -88,7 +101,7 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.CircusStunts.Finish.CFr
   	end    
 })
 
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "Mine of Lights",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -103,7 +116,7 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.GhastlyGrotto.Finish.CF
   	end    
 })
 
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "Slime Race",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -118,7 +131,7 @@ rootPart.CFrame = game:GetService("Workspace").Finish.SlipAndSlime.Finish.CFrame
   	end    
 })
 
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "School Corridors",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -133,7 +146,7 @@ rootPart.CFrame = game:GetService("Workspace").Finish.SchoolDropout.Finish.CFram
   	end    
 })
 
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "Lava Race",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -148,13 +161,8 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.LavaLake.Finish.CFrame
   	end    
 })
 
-local Tab = Window:MakeTab({
-	Name = "Tools",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
 
-Tab:AddButton({
+Tab4:AddButton({
 	Name = "Freeze Button",
 	Callback = function()
           loadstring(game:HttpGet('https://raw.githubusercontent.com/creepstu/fuzzy-octo-giggle/main/Source'))()
@@ -168,7 +176,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
+Tab4:AddButton({
 	Name = "HitBox",
 	Callback = function()
 _G.HeadSize = 9
@@ -197,4 +205,33 @@ end)
 })
 
   	end    
+})
+
+
+Tab3:AddButton({
+
+	Name = "Pyramid",
+
+	Callback = function()
+
+          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFrame
+
+      		OrionLib:MakeNotification({
+
+	Name = "Gas mask",
+
+	Content = "Cacthed :)",
+
+	Image = "rbxassetid://4483345998",
+
+	Time = 2
+
+})
+
+
+
+  	end    
+
 })
