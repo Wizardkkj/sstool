@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "SACRIFICE by ILUV", HidePremium = false, SaveConfig = false, ConfigFolder = "iluv"})
+local Window = OrionLib:MakeWindow({Name = "SS by Iluve", HidePremium = false, SaveConfig = false, ConfigFolder = "iluv"})
 
 local Tab = Window:MakeTab({
 	Name = "AutoWin",
@@ -26,7 +26,7 @@ local Tab4 = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Red Light, Green Light!",
+	Name = "Red Light, Green Light",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 rootPart.CFrame = game:GetService("Workspace").Challenge.RedLightGreenLight.Finish.CFrame
@@ -34,7 +34,7 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.RedLightGreenLight.Fini
 	Name = "Finished the Challenge",
 	Content = "You win :)",
 	Image = "rbxassetid://4483345998",
-	Time = 2
+	Time = 5
 })
 
   	end    
@@ -209,29 +209,16 @@ end)
 
 
 Tab3:AddButton({
-
-	Name = "Pyramid",
-
+	Name = "Gas Mask",
 	Callback = function()
-
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-
 rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFrame
-
       		OrionLib:MakeNotification({
-
 	Name = "Gas mask",
-
 	Content = "Cacthed :)",
-
 	Image = "rbxassetid://4483345998",
-
 	Time = 2
-
 })
 
-
-
   	end    
-
 })
