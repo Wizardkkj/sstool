@@ -222,3 +222,23 @@ rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFra
 
   	end    
 })
+
+Tab3:AddButton({
+
+	Name = "Correct Way [ Garden ]",
+
+	Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/esp_path/main/correctpath.lua"))()
+		OrionLib:MakeNotification({
+        Name = "Esp way",
+        Content = "Right path for you :)",
+	Image = "rbxassetid://4483345998",
+        Time = 4
+
+})
+
+
+
+  	end    
+
+})
