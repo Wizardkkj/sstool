@@ -135,7 +135,7 @@ Tab2:AddButton({
 	Name = "School Corridors",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Finish.SchoolDropout.Finish.CFrame
+rootPart.CFrame = game:GetService("Workspace").Challenge.SchoolDropout.Finish.CFrame
       		OrionLib:MakeNotification({
 	Name = "Finished the Challenge",
 	Content = "You win :)",
@@ -224,21 +224,59 @@ rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFra
 })
 
 Tab3:AddButton({
-
 	Name = "Correct Way [ Garden ]",
-
-	Callback = function()
-	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/esp_path/main/correctpath.lua"))()
-		OrionLib:MakeNotification({
-        Name = "Esp way",
-        Content = "Right path for you :)",
+	Callback = function()      loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/esp_path/main/correctpath.lua"))()
+      		OrionLib:MakeNotification({
+	Name = "Esp way",
+	Content = "Right path for you :)",
 	Image = "rbxassetid://4483345998",
-        Time = 4
-
+	Time = 2
 })
 
+  	end    
+})
 
+Tab:AddButton({
+	Name = "Castle Climb",
+	Callback = function()
+          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Challenge.CastleClimb.Finish.CFrame
+      		OrionLib:MakeNotification({
+	Name = "Finished the Challenge",
+	Content = "You win :)",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
 
   	end    
+})
 
+Tab3:AddButton({
+	Name = "Frog Hunt [ Frog ]",
+	Callback = function()
+          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogZel.CFrame
+      		OrionLib:MakeNotification({
+	Name = "Catch the frog",
+	Content = "You Catched the frog",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Frog Hunt [ Base ]",
+	Callback = function()
+          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogHolders1.HitBox.CFrame
+      		OrionLib:MakeNotification({
+	Name = "Frog Hunt",
+	Content = "That's it",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
 })
