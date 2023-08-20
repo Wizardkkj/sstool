@@ -280,3 +280,18 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogH
 
   	end    
 })
+
+Tab3:AddButton({
+	Name = "Balance Ball",
+	Callback = function()
+          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Challenge.BalanceBall.Finish.CFrame
+      		OrionLib:MakeNotification({
+	Name = "Balance Ball",
+	Content = "You Won! :)",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
+
+  	end    
+})
