@@ -179,24 +179,7 @@ Tab4:AddButton({
 Tab4:AddButton({
 	Name = "HitBox",
 	Callback = function()
-_G.HeadSize = 9
-_G.Disabled = true
-
-game:GetService('RunService').RenderStepped:connect(function()
-if _G.Disabled then
-for i,v in next, game:GetService('Players'):GetPlayers() do
-if v.Name ~= game:GetService('Players').LocalPlayer.Name then
-pcall(function()
-v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
-v.Character.HumanoidRootPart.Transparency = 0.7
-v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
-v.Character.HumanoidRootPart.Material = "Neon"
-v.Character.HumanoidRootPart.CanCollide = false
-end)
-end
-end
-end
-end)
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
       		OrionLib:MakeNotification({
 	Name = "Hitbox",
 	Content = "More Reach :)",
@@ -223,7 +206,7 @@ rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFra
   	end    
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Correct Way [ Garden ]",
 	Callback = function()      loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/esp_path/main/correctpath.lua"))()
       		OrionLib:MakeNotification({
@@ -281,7 +264,7 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogH
   	end    
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Balance Ball",
 	Callback = function()
           local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
