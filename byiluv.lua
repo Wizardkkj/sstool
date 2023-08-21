@@ -327,7 +327,7 @@ local function onTouched(otherPart)
         -- Aqui você pode adicionar a lógica para lidar com a interação
         print(character.Name .. " tocou no objeto com hitbox expandida!")
     end
-end
+
 
 -- Configure a função onTouched para o objeto
 part.Touched:Connect(onTouched)
@@ -374,7 +374,7 @@ local function onTouched(otherPart)
         local humanoid = character:FindFirstChild("Humanoid")
         -- Aqui você pode adicionar a lógica para lidar com a interação
         print(character.Name .. " tocou no objeto com hitbox expandida!")
-    end
+				
 end
 
 -- Configure a função onTouched para o objeto
