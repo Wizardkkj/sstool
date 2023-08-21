@@ -280,10 +280,24 @@ rootPart.CFrame = game:GetService("Workspace").Challenge.BalanceBall.Finish.CFra
 })
 
 
-Tab4:AddButton({
+Tab3:AddButton({
 	Name = "Head Expander Pig",
 	Callback = function()
           loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/hiiibox/main/pigbox.lua"))()
+      		OrionLib:MakeNotification({
+	Name = "Finished the Challenge",
+	Content = "You win :)",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "GaskMask Expander",
+	Callback = function()
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/intruder/c2b86f89c35839138418537ab3815f0a9442614d/hiibox2.lua"))()
       		OrionLib:MakeNotification({
 	Name = "Finished the Challenge",
 	Content = "You win :)",
