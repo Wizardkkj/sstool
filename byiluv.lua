@@ -308,5 +308,31 @@ Tab3:AddButton({
   	end    
 })
 
+Tab3:AddButton({
+	Name = "Remove Spikes",
+	Callback = function()    loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/iluv/main/removespike.lua"))()
+      		OrionLib:MakeNotification({
+	Name = "Spikes Removed",
+	Content = "You win :)",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Remove Lasers",
+	Callback = function()    loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/iluv/main/removelaser.lua"))()
+      		OrionLib:MakeNotification({
+	Name = "Lasers Removed",
+	Content = "You win :)",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+  	end    
+})
+
 OrionLib:Init()
 
