@@ -1,338 +1,87 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "SS by Iluve", HidePremium = false, SaveConfig = false, ConfigFolder = "iluv"})
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
-local Tab = Window:MakeTab({
-	Name = "AutoWin",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local enabled = false
+local gui = Instance.new("ScreenGui")
+gui.Name = "CandyFarmTest"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
 
-local Tab2 = Window:MakeTab({
-	Name = "Auto Win PVP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local frame = Instance.new("Frame")
+frame.Size = UDim2.fromOffset(190, 85)
+frame.Position = UDim2.new(0, 20, 0.5, -42)
+frame.BackgroundColor3 = Color3.fromRGB(30, 24, 42)
+frame.Parent = gui
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
 
-local Tab3 = Window:MakeTab({
-	Name = "Misc TP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 28)
+title.BackgroundTransparency = 1
+title.Text = "🎃 Candy Farm"
+title.TextColor3 = Color3.fromRGB(255, 190, 70)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 13
+title.Parent = frame
 
-local Tab4 = Window:MakeTab({
-	Name = "Tools",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, -16, 0, 35)
+button.Position = UDim2.new(0, 8, 0, 34)
+button.Text = "Auto Farm: OFF"
+button.TextColor3 = Color3.new(1, 1, 1)
+button.BackgroundColor3 = Color3.fromRGB(150, 45, 45)
+button.Font = Enum.Font.GothamBold
+button.TextSize = 13
+button.Parent = frame
+Instance.new("UICorner", button).CornerRadius = UDim.new(0, 7)
 
-Tab:AddButton({
-	Name = "Red Light, Green Light",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.RedLightGreenLight.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
+button.Activated:Connect(function()
+    enabled = not enabled
+    button.Text = enabled and "Auto Farm: ON" or "Auto Farm: OFF"
+    button.BackgroundColor3 = enabled
+        and Color3.fromRGB(40, 150, 75)
+        or Color3.fromRGB(150, 45, 45)
+end)
 
-  	end    
-})
+task.spawn(function()
+    while gui.Parent do
+        task.wait(1)
 
-Tab:AddButton({
-	Name = "Pyramid",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.PetrifyingPyramid.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
+        if enabled then
+            local folder = workspace:FindFirstChild("Candies")
+            local character = player.Character
+            local root = character
+                and character:FindFirstChild("HumanoidRootPart")
 
-  	end    
-})
+            if folder and root then
+                local nearest, nearestDistance
 
-Tab:AddButton({
-	Name = "Build Bridge",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Finish.SpacecraftScramble.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
+                for _, candy in ipairs(folder:GetChildren()) do
+                    local part
+                    if candy:IsA("BasePart") then
+                        part = candy
+                    else
+                        part = candy:FindFirstChildWhichIsA(
+                            "BasePart", true
+                        )
+                    end
 
-  	end    
-})
+                    if part and part.Parent then
+                        local distance =
+                            (part.Position - root.Position).Magnitude
 
-Tab:AddButton({
-	Name = "Laser Race",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.ConveyorLaser.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
+                        if not nearestDistance
+                            or distance < nearestDistance then
+                            nearest = part
+                            nearestDistance = distance
+                        end
+                    end
+                end
 
-  	end    
-})
-
-
-Tab2:AddButton({
-	Name = "Circus",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.CircusStunts.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Mine of Lights",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.GhastlyGrotto.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Slime Race",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Finish.SlipAndSlime.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "School Corridors",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.SchoolDropout.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Lava Race",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.LavaLake.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-
-Tab4:AddButton({
-	Name = "Freeze Button",
-	Callback = function()
-          loadstring(game:HttpGet('https://raw.githubusercontent.com/creepstu/fuzzy-octo-giggle/main/Source'))()
-      		OrionLib:MakeNotification({
-	Name = "GUI loaded",
-	Content = "Switch on and off",
-	Image = "rbxassetid://4483345998",
-	Time = 3
-})
-
-  	end    
-})
-
-Tab4:AddButton({
-	Name = "HitBox",
-	Callback = function()
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Hitbox",
-	Content = "More Reach :)",
-	Image = "rbxassetid://4483345998",
-	Time = 4
-})
-
-  	end    
-})
-
-
-Tab3:AddButton({
-	Name = "Gas Mask",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Finish.MaskTheGas.Parts.Part.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Gas mask",
-	Content = "Cacthed :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Correct Way [ Garden ]",
-	Callback = function()      loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/esp_path/main/correctpath.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Esp way",
-	Content = "Right path for you :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab:AddButton({
-	Name = "Castle Climb",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.CastleClimb.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "Frog Hunt [ Frog ]",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogZel.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Catch the frog",
-	Content = "You Catched the frog",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "Frog Hunt [ Base ]",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.LilyPadLifeguards.FrogHolders1.HitBox.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Frog Hunt",
-	Content = "That's it",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Balance Ball",
-	Callback = function()
-          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Challenge.BalanceBall.Finish.CFrame
-      		OrionLib:MakeNotification({
-	Name = "Balance Ball",
-	Content = "You Won! :)",
-	Image = "rbxassetid://4483345998",
-	Time = 3
-})
-
-  	end    
-})
-
-
-Tab3:AddButton({
-	Name = "Head Expander Pig",
-	Callback = function()
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/hiiibox/main/pigbox.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "GaskMask Expander",
-	Callback = function()
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/intruder/c2b86f89c35839138418537ab3815f0a9442614d/hiibox2.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Finished the Challenge",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "Remove Spikes",
-	Callback = function()    loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/iluv/main/removespike.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Spikes Removed",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "Remove Lasers",
-	Callback = function()    loadstring(game:HttpGet("https://raw.githubusercontent.com/Wizardkkj/iluv/main/removelaser.lua"))()
-      		OrionLib:MakeNotification({
-	Name = "Lasers Removed",
-	Content = "You win :)",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-
-  	end    
-})
-
-OrionLib:Init()
-
+                if nearest and enabled then
+                    root.CFrame = nearest.CFrame
+                        * CFrame.new(0, 3, 0)
+                end
+            end
+        end
+    end
+end)
